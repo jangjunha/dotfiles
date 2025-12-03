@@ -129,6 +129,20 @@
     };
 
     initContent = ''
+      # Option + backspace
+      bindkey '^[^?' backward-kill-word
+      bindkey '^W' backward-kill-word
+
+      # Option + Delete
+      bindkey '^[[3;3~' kill-word
+      bindkey '^[d' kill-word
+
+      # Option + Arrow
+      bindkey '^[^[[D' backward-word
+      bindkey '^[^[[C' forward-word
+      bindkey '^[[1;3D' backward-word
+      bindkey '^[[1;3C' forward-word
+
       # Colors
       autoload colors; colors;
 
