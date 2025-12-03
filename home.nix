@@ -29,7 +29,18 @@
     ripgrep
     neovim
 
+    uv
+    pnpm
+    rustup
+    opentofu
+    terraform-ls
+    container
     gh
+    jq
+    httpie
+    pre-commit
+    awscli2
+    google-cloud-sdk
     nixfmt-rfc-style
   ];
 
@@ -63,6 +74,9 @@
     FZF_DEFAULT_COMMAND = "fd --type f --strip-cwd-prefix";
     FZF_CTRL_T_COMMAND = "fd --type f --strip-cwd-prefix";
   };
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
 
   programs.git = {
     enable = true;
@@ -155,6 +169,9 @@
 
       # iTerm2 integration
       test -e "''${HOME}/.iterm2_shell_integration.zsh" && source "''${HOME}/.iterm2_shell_integration.zsh"
+
+      # Homebrew
+      test -e /opt/homebrew/bin/brew && eval "$(/opt/homebrew/bin/brew shellenv)"
     '';
 
     history = {
