@@ -1,9 +1,12 @@
 {
-  description = "Home Manager configuration of junha";
+  description = "Darwin configuration of junha";
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -11,21 +14,23 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }:
-    let
-      system = "aarch64-darwin";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
+    inputs@{
+      self,
+      nix-darwin,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
     {
-      homeConfigurations."junha" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home.nix ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+      darwinConfigurations = {
+        "junha-air2022" = nix-darwin.lib.darwinSystem {
+          specialArgs = { inherit self; };
+          system = "aarch64-darwin";
+          modules = [
+            home-manager.darwinModules.home-manager
+            ./configuration.nix
+          ];
+        };
       };
     };
 }

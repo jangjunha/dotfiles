@@ -1,0 +1,36 @@
+[font]
+normal = { family = "Monaco Nerd Font", style = "Regular" }
+size = 12
+
+[colors]
+selection = { foreground = "#d0d0d0", background = "#005f5f" }
+
+[colors.primary]
+foreground = "#d0d0d0"
+background = "#161616"
+
+[colors.normal]
+black = "#4d4d4d"
+red = "#d68787"
+green = "#789575"
+yellow = "#d8af5f"
+blue = "#85add4"
+magenta = "#d7afaf"
+cyan = "#87afaf"
+white = "#d0d0d0"
+
+[colors.bright]
+black = "#626262"
+red = "#d75f87"
+green = "#87af87"
+yellow = "#ffd787"
+blue = "#add4fb"
+magenta = "#ffafaf"
+cyan = "#87d7d7"
+white = "#e4e4e4"
+
+[colors.search]
+matches = { background = "#fefb51" }
+
+[selection]
+save_to_clipboard = true

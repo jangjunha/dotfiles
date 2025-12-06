@@ -1,11 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
-  home.username = "junha";
-  home.homeDirectory = "/Users/junha";
-
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -47,6 +42,10 @@
   home.file = {
     ".config/nvim" = {
       source = dotfiles/nvim;
+      recursive = true;
+    };
+    ".config/alacritty" = {
+      source = dotfiles/alacritty;
       recursive = true;
     };
   };
@@ -190,6 +189,32 @@
         show_always = true;
       };
       gcloud.disabled = true;
+    };
+  };
+
+  programs.vscode = {
+    enable = true;
+    profiles.default = {
+      userSettings = {
+        "telemetry.telemetryLevel" = "off";
+        "editor.formatOnSave" = true;
+        "workbench.sideBar.location" = "right";
+        "editor.rulers" = [
+          80
+          120
+        ];
+      };
+      extensions = with pkgs.vscode-extensions; [
+        ms-azuretools.vscode-containers
+        github.vscode-github-actions
+        editorconfig.editorconfig
+        ms-python.python
+        charliermarsh.ruff
+        biomejs.biome
+        rust-lang.rust-analyzer
+        hashicorp.terraform
+        jnoortheen.nix-ide
+      ];
     };
   };
 
