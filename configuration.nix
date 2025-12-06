@@ -59,6 +59,12 @@ in
       "RunCat" = 1429033973;
     };
     casks = [
+      "1password"
+      "firefox"
+      "google-chrome"
+      "obsidian"
+      "sourcetree"
+      "vlc"
     ];
   };
 
