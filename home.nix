@@ -198,32 +198,6 @@
     };
   };
 
-  programs.vscode = {
-    enable = true;
-    profiles.default = {
-      userSettings = {
-        "telemetry.telemetryLevel" = "off";
-        "editor.formatOnSave" = true;
-        "workbench.sideBar.location" = "right";
-        "editor.rulers" = [
-          80
-          120
-        ];
-      };
-      extensions = with pkgs.vscode-extensions; [
-        ms-azuretools.vscode-containers
-        github.vscode-github-actions
-        editorconfig.editorconfig
-        ms-python.python
-        charliermarsh.ruff
-        biomejs.biome
-        rust-lang.rust-analyzer
-        hashicorp.terraform
-        jnoortheen.nix-ide
-      ];
-    };
-  };
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
