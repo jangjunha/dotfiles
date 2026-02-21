@@ -26,6 +26,7 @@
 
     uv
     pnpm
+    bun
     rustup
     opentofu
     terraform-ls
