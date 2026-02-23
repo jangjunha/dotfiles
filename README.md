@@ -17,6 +17,8 @@ or check https://docs.determinate.systems/getting-started/individuals/#install
 ## Installation
 
 ```bash
+sudo mkdir /etc/nix-darwin
+sudo chown junha:staff /etc/nix-darwin
 git clone https://github.com/jangjunha/dotfiles /etc/nix-darwin
 cd /etc/nix-darwin
 sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#junha-air2022
