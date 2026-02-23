@@ -22,22 +22,35 @@
     bat
     fzf
     ripgrep
+    tree-sitter
     neovim
+    hwatch
 
+    podman
+    podman-compose
+    krunkit
+    python314
     uv
     pnpm
     bun
+    nodejs_24
     rustup
     opentofu
     terraform-ls
-    container
     gh
     jq
     httpie
+    postgresql_18
     pre-commit
+    kubectl
     awscli2
     google-cloud-sdk
+    gemini-cli
     nixfmt-rfc-style
+    imagemagick
+    ghostscript
+
+    shopify-cli
   ];
 
   home.file = {
@@ -73,6 +86,7 @@
     LESS = "-FRX";
     FZF_DEFAULT_COMMAND = "fd --type f --strip-cwd-prefix";
     FZF_CTRL_T_COMMAND = "fd --type f --strip-cwd-prefix";
+    PODMAN_COMPOSE_WARNING_LOGS = "false";
   };
   home.sessionPath = [
     "$HOME/.local/bin"
