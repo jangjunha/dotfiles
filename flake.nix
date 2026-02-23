@@ -31,6 +31,14 @@
             ./configuration.nix
           ];
         };
+        "junha-momo-m5" = nix-darwin.lib.darwinSystem {
+          specialArgs = { inherit self; };
+          system = "aarch64-darwin";
+          modules = [
+            home-manager.darwinModules.home-manager
+            ./configuration.nix
+          ];
+        };
       };
     };
 }
