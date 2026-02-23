@@ -65,6 +65,8 @@ in
       "obsidian"
       "sourcetree"
       "vlc"
+      "pgadmin4"
+      "podman-desktop"
     ];
   };
 
