@@ -62,6 +62,11 @@
       source = dotfiles/alacritty;
       recursive = true;
     };
+    "Library/KeyBindings/DefaultKeyBinding.dict".text = ''
+      {
+        "₩" = ("insertText:", "`");
+      }
+    '';
   };
 
   # Home Manager can also manage your environment variables through
