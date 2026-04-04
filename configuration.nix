@@ -50,14 +50,6 @@ in
 
   homebrew = {
     enable = true;
-    masApps = {
-      "Keynote" = 409183694;
-      "Numbers" = 409203825;
-      "Pages" = 409201541;
-      "Xcode" = 497799835;
-      "1Password for Safari" = 1569813296;
-      "RunCat" = 1429033973;
-    };
     casks = [
       "1password"
       "firefox"
