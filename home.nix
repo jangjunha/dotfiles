@@ -25,11 +25,11 @@
     tree-sitter
     neovim
     hwatch
-
     podman
     podman-compose
     krunkit
     python314
+    nodejs_24
     uv
     pnpm
     bun
@@ -49,8 +49,9 @@
     nixfmt-rfc-style
     imagemagick
     ghostscript
-
     shopify-cli
+    yubikey-manager
+    pinentry_mac
   ];
 
   home.file = {
@@ -150,6 +151,19 @@
     };
   };
 
+  programs.gpg = {
+    enable = true;
+    settings = {
+      personal-cipher-preferences = "AES256 AES192 AES";
+      personal-digest-preferences = "SHA512 SHA384 SHA256";
+      cert-digest-algo = "SHA512";
+      default-preference-list = "SHA512 SHA384 SHA256 AES256 AES192 AES ZLIB BZIP2 ZIP Uncompressed";
+      use-agent = true;
+      keyid-format = "0xlong";
+      with-fingerprint = true;
+    };
+  };
+
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
@@ -220,4 +234,12 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  services.gpg-agent = {
+    enable = true;
+    enableSshSupport = true;
+    pinentryPackage = pkgs.pinentry_mac;
+    defaultCacheTtl = 600;
+    maxCacheTtl = 7200;
+  };
 }
