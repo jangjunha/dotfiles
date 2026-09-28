@@ -30,6 +30,8 @@
     krunkit
     python314
     nodejs_24
+    ruby_4_0
+    luajit
     uv
     pnpm
     bun
@@ -52,6 +54,7 @@
     shopify-cli
     yubikey-manager
     pinentry_mac
+    ffmpeg
   ];
 
   home.file = {
@@ -163,6 +166,12 @@
       with-fingerprint = true;
     };
   };
+
+  # nushell is not used in this config, but home-manager now defaults
+  # home.shell.enableShellIntegration to true, which would otherwise turn on
+  # nushell integration for every program (e.g. fzf's nushell integration
+  # requires fzf >= 0.73.0, which nixpkgs-26.05-darwin doesn't have yet).
+  home.shell.enableNushellIntegration = false;
 
   programs.fzf = {
     enable = true;
